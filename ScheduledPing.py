@@ -13,10 +13,11 @@ pingData = {
 
 def runPingCheck():
     runTimer = float(input("Run job for (in minutes): "))
+    pingInterval = int(input("Ping interval (in seconds): "))
     startTime = datetime.today()
     while datetime.today() < (startTime + timedelta(minutes=runTimer)):
         os.system('ping 208.67.222.222 >> pingData.txt')
-        sleep(5)
+        sleep(pingInterval)
     convertPingData()
     generateHtml(pingData)
 
