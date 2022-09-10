@@ -2,6 +2,8 @@ import os
 from datetime import datetime, timedelta
 from time import sleep
 
+from generateHtml import generateHtml
+
 pingData = {
     'packets': [],
     'minimum': [],
@@ -16,6 +18,7 @@ def runPingCheck():
         os.system('ping 208.67.222.222 >> pingData.txt')
         sleep(5)
     convertPingData()
+    generateHtml(pingData)
 
 def convertPingData():
     file = open('pingData.txt')
